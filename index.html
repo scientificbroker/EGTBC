@@ -225,10 +225,10 @@
                         <p>No tiene costo unirse a la waitlist.</p>
                     </div>
                     <form class="reg-form" onsubmit="event.preventDefault(); alert('¡Gracias por unirte a la waitlist! Te contactaremos pronto.');">
-                        <input type="text" placeholder="Nombre completo" required>
-                        <input type="email" placeholder="Correo electrónico profesional" required>
-                        <input type="text" placeholder="Institución / Empresa" required>
-                        <select required>
+                        <input type="text" name="name" placeholder="Nombre completo" required>
+                        <input type="email" name="email" placeholder="Correo electrónico profesional" required>
+                        <input type="text" name="institution" placeholder="Institución / Empresa" required>
+                        <select name="profile" required>
                             <option value="">Perfil Profesional</option>
                             <option value="broker">Broker Científico</option>
                             <option value="gestor">Gestor Tecnológico</option>
@@ -425,7 +425,7 @@
                 btn.disabled = true;
 
                 try {
-                    const response = await fetch('http://localhost:3000/api/waitlist', {
+                    const response = await fetch('/api/waitlist', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(data)
