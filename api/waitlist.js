@@ -16,10 +16,10 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    const { name, email, institution, profile } = req.body;
+    const { name, email, whatsapp, institution, profile } = req.body;
 
-    if (!name || !email) {
-        return res.status(400).json({ error: 'Name and Email are required' });
+    if (!name || !email || !whatsapp) {
+        return res.status(400).json({ error: 'Name, Email, and WhatsApp are required' });
     }
 
     // Initialize Supabase client
@@ -36,7 +36,7 @@ export default async function handler(req, res) {
         const { data, error } = await supabase
             .from('waitlist')
             .insert([
-                { name, email, institution, profile }
+                { name, email, whatsapp, institution, profile }
             ]);
 
         if (error) {

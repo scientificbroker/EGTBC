@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "Backend for EGTBC Waitlist",
   "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js"
-  },
+  "scripts": {},
   "dependencies": {
     "@supabase/supabase-js": "^2.105.3",
     "body-parser": "^1.20.2",
