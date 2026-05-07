@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I EGTBC - 2026</title>
+    <!-- Modern Sans-Serif Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="network-bg"></canvas>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-brand">
+                <span class="logo">I EGTBC - 2026</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#hero" class="active">Inicio</a></li>
+                <li><a href="#arquitectura">Arquitectura</a></li>
+                <li><a href="#evento">El Evento</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
+                <li><a href="#waitlist">Waitlist</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <a href="#waitlist" class="btn-nav">Unirse a Waitlist</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="hero_bg.png" alt="Globe Background" />
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 3H15"></path>
+                    <path d="M10 3V8L4 18C3.5 19 4 21 5.5 21H18.5C20 21 20.5 19 20 18L14 8V3"></path>
+                    <path d="M10 14H14"></path>
+                </svg>
+                <span>BROKER CIENTÍFICO 4.0</span>
+            </div>
+            
+            <h1 class="hero-title dots" data-start="0" data-duration="4" data-track-index="1">
+                <span class="animated-text" style="--i: 0">I Encuentro de Gestores Tecnológicos</span>
+                <span class="animated-text" style="--i: 1">y Brokers Científicos</span>
+                <span class="animated-text" style="--i: 2">(I EGTBC - 2026)</span>
+            </h1>
+
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Días</div>
+                </div>
+                <div class="countdown-divider">:</div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Horas</div>
+                </div>
+                <div class="countdown-divider">:</div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutos</div>
+                </div>
+                <div class="countdown-divider">:</div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Segundos</div>
+                </div>
+            </div>
+            
+            <p class="hero-subtitle">Transformando la gestión tecnológica hacia el Broker Científico 4.0. Un laboratorio de<br>aprendizaje experiencial donde convergen academia, Estado y sector privado.</p>
+            
+            <a href="#waitlist" class="btn btn-primary">Únete a la Waitlist</a>
+        </div>
+    </section>
+
+    <!-- Arquitectura de la Gestión Tecnológica 4.0 -->
+    <section class="architecture" id="arquitectura">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">LOS 4 PILARES</span>
+                <h2>La Arquitectura de la Gestión Tecnológica 4.0</h2>
+                <p>Nuestra metodología estructurada para el Broker Científico</p>
+            </div>
+
+            <div class="arch-container">
+                <div class="arch-center-box">
+                    <p>Un ecosistema de aprendizaje e implementación que responde a una sola pregunta: <strong>¿cómo convertir datos brutos en decisiones estratégicas auditables y monetizables?</strong></p>
+                </div>
+                <div class="arch-grid">
+                    <div class="arch-card">
+                        <div class="arch-icon">
+                            <!-- Placeholder icon for Gobernanza -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                        </div>
+                        <h3>I. Gobernanza de Datos</h3>
+                        <p>(Cimiento Estratégico)</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-icon">
+                            <!-- Placeholder icon for Autonomia -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                        </div>
+                        <h3>II. Autonomía Agéntica</h3>
+                        <p>(Sustituyendo el Esfuerzo Manual)</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-icon">
+                            <!-- Placeholder icon for Capitalizacion -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        </div>
+                        <h3>IV. Capitalización</h3>
+                        <p>(Infonomía y DaaS)</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-icon">
+                            <!-- Placeholder icon for Inteligencia IP -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h3>III. Inteligencia IP</h3>
+                        <p>(FTO y Seguridad Jurídica)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- El Evento Central -->
+    <section class="evento" id="evento">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">NUESTRA JORNADA</span>
+                <h2>El Evento Central</h2>
+                <p>Tres días inmersivos diseñados para transformar tu visión estratégica. <em>¡Pronto publicaremos la agenda detallada de cada día!</em></p>
+            </div>
+
+            <div class="event-days">
+                <!-- Dia 1 -->
+                <div class="event-day-card">
+                    <div class="day-image">
+                        <img src="dia1.jpg" alt="Día 1 Estratégico" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800&h=400'"/>
+                    </div>
+                    <div class="day-content">
+                        <h3>Día 01: Estratégico</h3>
+                        <p>La primera jornada se centra en establecer las bases normativas y métricas actuales para la transferencia de tecnología. Se inicia con una plenaria sobre las métricas ICTT 2025.</p>
+                    </div>
+                </div>
+
+                <!-- Dia 2 -->
+                <div class="event-day-card reverse">
+                    <div class="day-image">
+                        <img src="dia2.jpg" alt="Día 2 Tecnológico" onerror="this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800&h=400'"/>
+                    </div>
+                    <div class="day-content">
+                        <h3>Día 02: Tecnológico</h3>
+                        <p>El segundo día está dedicado a la aplicación de herramientas agénticas para la gestión tecnológica. Aquí se busca fortalecer y acelerar el proceso de vigilancia y maduración en PI.</p>
+                    </div>
+                </div>
+
+                <!-- Dia 3 -->
+                <div class="event-day-card">
+                    <div class="day-image">
+                        <img src="dia3.jpg" alt="Día 3 Comercial" onerror="this.src='https://images.unsplash.com/photo-1639762681485-074b7f4ec651?auto=format&fit=crop&q=80&w=800&h=400'"/>
+                    </div>
+                    <div class="day-content">
+                        <h3>Día 03: Comercial</h3>
+                        <p>El cierre del evento se enfoca en la monetización y el marco legal de la innovación. Se analizan temas de Infonomía en LATAM y la Decisión Andina 486.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicacion -->
+    <section class="location" id="ubicacion">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">SEDE CONFIRMADA</span>
+                <h2>Ubicación del Evento</h2>
+                <p>Las instalaciones más modernas para la innovación: Open PUCP, Lima.</p>
+            </div>
+
+            <div class="location-grid">
+                <div class="location-image">
+                    <img src="open-pucp-1.jpg" alt="Open PUCP Instalaciones 1" onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800'"/>
+                    <div class="location-overlay">Auditorio Principal</div>
+                </div>
+                <div class="location-image">
+                    <img src="open-pucp-2.jpg" alt="Open PUCP Instalaciones 2" onerror="this.src='https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&q=80&w=800'"/>
+                    <div class="location-overlay">Zonas de Networking y Laboratorios</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist Section -->
+    <section class="waitlist" id="waitlist">
+        <div class="container">
+            <div class="registration-wrapper">
+                <div class="reg-info">
+                    <span class="section-tag">ACCESO EXCLUSIVO</span>
+                    <h2>Únete a la Waitlist</h2>
+                    <p>Sé el primero en enterarte de la apertura de inscripciones y asegura tu cupo para el I EGTBC 2026 en Open PUCP.</p>
+                    
+                    <ul class="benefits-list">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Prioridad en la inscripción al evento</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Descuento especial "Early Bird" garantizado</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Actualizaciones sobre la agenda final</li>
+                    </ul>
+                </div>
+
+                <div class="reg-card">
+                    <div class="price-header">
+                        <span class="badge-early">Lista de Espera Abierta</span>
+                        <h3>Reserva tu prioridad</h3>
+                        <p>No tiene costo unirse a la waitlist.</p>
+                    </div>
+                    <form class="reg-form" onsubmit="event.preventDefault(); alert('¡Gracias por unirte a la waitlist! Te contactaremos pronto.');">
+                        <input type="text" placeholder="Nombre completo" required>
+                        <input type="email" placeholder="Correo electrónico profesional" required>
+                        <input type="text" placeholder="Institución / Empresa" required>
+                        <select required>
+                            <option value="">Perfil Profesional</option>
+                            <option value="broker">Broker Científico</option>
+                            <option value="gestor">Gestor Tecnológico</option>
+                            <option value="investigador">Investigador</option>
+                            <option value="inversor">Inversor / Corporativo</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary btn-block">Unirme a la Waitlist</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>I EGTBC - 2026</h3>
+                    <p>Laboratorio de aprendizaje experiencial donde convergen academia, Estado y sector privado.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Contacto</h4>
+                    <a href="mailto:info@egtbc.pe">info@egtbc.pe</a>
+                    <p>Open PUCP - Lima, Perú</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Síguenos</h4>
+                    <div class="socials">
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 I Encuentro de Gestores Tecnológicos y Brokers Científicos. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        function updateParticles() {
+            if (window.networkParticles) {
+                window.networkParticles.updateTheme();
+            }
+        }
+
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-mode');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            if (document.body.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light');
+            } else {
+                localStorage.setItem('theme', 'dark');
+            }
+            updateParticles();
+        });
+
+        // Animated Network Background
+        class ParticleNetwork {
+            constructor() {
+                this.canvas = document.getElementById('network-bg');
+                this.ctx = this.canvas.getContext('2d');
+                this.particles = [];
+                this.particleCount = 80;
+                this.resize();
+                this.init();
+                this.animate();
+                window.addEventListener('resize', () => this.resize());
+            }
+
+            resize() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+            }
+
+            updateTheme() {
+                this.init(); // Re-init with new colors
+            }
+
+            init() {
+                this.particles = [];
+                const isLight = document.body.classList.contains('light-mode');
+                const color = isLight ? '71, 85, 105' : '6, 182, 212';
+                
+                for (let i = 0; i < this.particleCount; i++) {
+                    this.particles.push({
+                        x: Math.random() * this.canvas.width,
+                        y: Math.random() * this.canvas.height,
+                        vx: (Math.random() - 0.5) * 0.5,
+                        vy: (Math.random() - 0.5) * 0.5,
+                        radius: Math.random() * 2,
+                        color: `rgba(${color}, ${Math.random() * 0.5})`
+                    });
+                }
+            }
+
+            animate() {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                const isLight = document.body.classList.contains('light-mode');
+                const lineColor = isLight ? '71, 85, 105' : '6, 182, 212';
+
+                this.particles.forEach((p, i) => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0 || p.x > this.canvas.width) p.vx *= -1;
+                    if (p.y < 0 || p.y > this.canvas.height) p.vy *= -1;
+
+                    this.ctx.beginPath();
+                    this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    this.ctx.fillStyle = p.color;
+                    this.ctx.fill();
+
+                    for (let j = i + 1; j < this.particles.length; j++) {
+                        const p2 = this.particles[j];
+                        const dx = p.x - p2.x;
+                        const dy = p.y - p2.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < 150) {
+                            this.ctx.beginPath();
+                            this.ctx.strokeStyle = `rgba(${lineColor}, ${0.15 * (1 - dist / 150)})`;
+                            this.ctx.lineWidth = 0.5;
+                            this.ctx.moveTo(p.x, p.y);
+                            this.ctx.lineTo(p2.x, p2.y);
+                            this.ctx.stroke();
+                        }
+                    }
+                });
+                requestAnimationFrame(() => this.animate());
+            }
+        }
+
+        window.networkParticles = new ParticleNetwork();
+
+        // Countdown Logic
+        const countdownDate = new Date("Sep 1, 2026 00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const dEl = document.getElementById("days");
+            const hEl = document.getElementById("hours");
+            const mEl = document.getElementById("minutes");
+            const sEl = document.getElementById("seconds");
+
+            if(dEl) dEl.innerHTML = days.toString().padStart(2, '0');
+            if(hEl) hEl.innerHTML = hours.toString().padStart(2, '0');
+            if(mEl) mEl.innerHTML = minutes.toString().padStart(2, '0');
+            if(sEl) sEl.innerHTML = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                document.querySelector(".countdown-container").innerHTML = "¡EVENTO EN CURSO!";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Waitlist Form Handling
+        const waitlistForm = document.querySelector('.reg-form');
+        if(waitlistForm) {
+            waitlistForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = new FormData(waitlistForm);
+                const data = Object.fromEntries(formData.entries());
+                
+                const btn = waitlistForm.querySelector('button');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = 'Enviando...';
+                btn.disabled = true;
+
+                try {
+                    const response = await fetch('http://localhost:3000/api/waitlist', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (response.ok) {
+                        alert('¡Gracias por unirte a la Waitlist!');
+                        waitlistForm.reset();
+                    } else {
+                        alert('Error al enviar. Inténtalo de nuevo.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Error de conexión con el servidor.');
+                } finally {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }
+            });
+        }
+    </script>
+</body>
+</html>

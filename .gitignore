@@ -1,0 +1,4 @@
+node_modules/
+waitlist.db
+server.log
+.claude/
