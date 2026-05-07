@@ -35,7 +35,7 @@ body.light-mode {
     --text-secondary: #334155;
     --border-light: rgba(15, 23, 42, 0.08);
     --mesh-color: rgba(9, 88, 217, 0.05);
-    background-image: url('netweb_lm2.png');
+    background-image: url('assets/netweb_lm2.png');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -101,7 +101,7 @@ body {
     overflow-x: hidden;
     background-image: 
         linear-gradient(rgba(7, 12, 20, 0.7), rgba(7, 12, 20, 0.7)),
-        url('hero_bg.png');
+        url('assets/hero_bg.png');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
