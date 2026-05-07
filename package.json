@@ -2,7 +2,6 @@
   "name": "egtbc-backend",
   "version": "1.0.0",
   "description": "Backend for EGTBC Waitlist",
-  "main": "server.js",
   "scripts": {},
   "dependencies": {
     "@supabase/supabase-js": "^2.105.3",
