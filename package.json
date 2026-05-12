@@ -1,6 +1,7 @@
 {
   "name": "egtbc-landing",
   "version": "1.0.0",
+  "type": "module",
   "description": "Landing page for EGTBC with waitlist",
   "dependencies": {
     "@supabase/supabase-js": "^2.105.3"
