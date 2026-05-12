@@ -897,6 +897,6 @@ body.light-mode .footer {
         display: none;
     }
     .hero-title {
-        font-size: 2rem;
+        font-size: clamp(1.5rem, 5vw, 2rem);
     }
 }

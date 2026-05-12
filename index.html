@@ -450,11 +450,18 @@
                         body: JSON.stringify(data)
                     });
 
+                    let result = {};
+                    try {
+                        result = await response.json();
+                    } catch (e) {
+                        console.error('Failed to parse JSON response');
+                    }
+
                     if (response.ok) {
                         alert('¡Gracias por unirte a la Waitlist!');
                         waitlistForm.reset();
                     } else {
-                        alert('Error al enviar. Inténtalo de nuevo.');
+                        alert('Error: ' + (result.error || 'Inténtalo de nuevo.'));
                     }
                 } catch (error) {
                     console.error('Error:', error);
