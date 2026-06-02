@@ -42,6 +42,7 @@
                 <li><a href="#waitlist">Waitlist</a></li>
             </ul>
             <div class="nav-actions">
+                <a href="/Brochure I EGTBC 2026.pdf" download="Brochure_I_EGTBC_2026.pdf" class="btn-nav" style="background: transparent; border: 1px solid var(--brand-blue); color: var(--text-primary); margin-right: -0.5rem;">Descargar Brochure</a>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
                     <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                     <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
@@ -97,7 +98,10 @@
             
             <p class="hero-subtitle">Transformando la gestión tecnológica hacia el Broker Científico 4.0. Un laboratorio de<br>aprendizaje experiencial donde convergen academia, Estado y sector privado.</p>
             
-            <a href="#waitlist" class="btn btn-primary">Únete a la Waitlist</a>
+            <div class="hero-actions" style="display: flex; gap: 1rem; justify-content: center; align-items: center;">
+                <a href="#waitlist" class="btn btn-primary">Únete a la Waitlist</a>
+                <a href="/Brochure I EGTBC 2026.pdf" download="Brochure_I_EGTBC_2026.pdf" class="btn" style="border: 1px solid var(--brand-blue); color: var(--text-primary); background: transparent;">Descargar Brochure</a>
+            </div>
         </div>
     </section>
 
@@ -400,8 +404,13 @@
 
         window.networkParticles = new ParticleNetwork();
 
-        // Countdown Logic
-        const countdownDate = new Date("Sep 1, 2026 00:00:00").getTime();
+        // Target date check: ensure it is in the future
+        let countdownDate = new Date("Sep 1, 2026 00:00:00").getTime();
+        const nowCheck = new Date().getTime();
+        if (countdownDate <= nowCheck) {
+            // Set dynamic target 90 days in the future if default passed, keeping countdown active
+            countdownDate = nowCheck + (90 * 24 * 60 * 60 * 1000);
+        }
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -423,12 +432,39 @@
             if(sEl) sEl.innerHTML = seconds.toString().padStart(2, '0');
 
             if (distance < 0) {
-                document.querySelector(".countdown-container").innerHTML = "¡EVENTO EN CURSO!";
+                const container = document.querySelector(".countdown-container");
+                if (container) container.innerHTML = "<div style='color: var(--brand-cyan); font-weight: bold; letter-spacing: 2px;'>¡EVENTO EN CURSO!</div>";
             }
         }
 
         setInterval(updateCountdown, 1000);
         updateCountdown();
+
+        // Premium Notification/Toast System
+        function showNotification(message, isSuccess = true) {
+            // Remove existing toasts
+            const existingToast = document.querySelector('.premium-toast');
+            if (existingToast) existingToast.remove();
+
+            const toast = document.createElement('div');
+            toast.className = `premium-toast ${isSuccess ? 'toast-success' : 'toast-error'}`;
+            toast.innerHTML = `
+                <div class="toast-content">
+                    <span class="toast-icon">${isSuccess ? '✓' : '✕'}</span>
+                    <span class="toast-message">${message}</span>
+                </div>
+            `;
+            document.body.appendChild(toast);
+
+            // Animate In
+            setTimeout(() => toast.classList.add('show'), 10);
+
+            // Auto Remove
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 400);
+            }, 4000);
+        }
 
         // Waitlist Form Handling
         const waitlistForm = document.querySelector('.reg-form');
@@ -440,7 +476,7 @@
                 
                 const btn = waitlistForm.querySelector('button');
                 const originalText = btn.innerHTML;
-                btn.innerHTML = 'Enviando...';
+                btn.innerHTML = '<span class="spinner"></span> Registrando...';
                 btn.disabled = true;
 
                 try {
@@ -458,14 +494,14 @@
                     }
 
                     if (response.ok) {
-                        alert('¡Gracias por unirte a la Waitlist!');
+                        showNotification('¡Te has registrado con éxito en la waitlist!');
                         waitlistForm.reset();
                     } else {
-                        alert('Error: ' + (result.error || 'Inténtalo de nuevo.'));
+                        showNotification(result.error || 'Hubo un error al registrarte. Inténtalo de nuevo.', false);
                     }
                 } catch (error) {
                     console.error('Error:', error);
-                    alert('Error de conexión con el servidor.');
+                    showNotification('Error de conexión con el servidor local.', false);
                 } finally {
                     btn.innerHTML = originalText;
                     btn.disabled = false;
