@@ -292,6 +292,52 @@
         </div>
     </section>
 
+    <!-- Modal para visualización interactiva de Infografía de los Pilares -->
+    <div id="pilar-modal" class="pilar-modal" onclick="closePilarModal(event)">
+        <div class="pilar-modal-content">
+            <span class="close-modal-btn" onclick="closePilarModal(event, true)">&times;</span>
+            <div class="modal-body-layout">
+                <div class="modal-text-side">
+                    <span class="modal-badge">DETALLES DEL PILAR</span>
+                    <h2 id="modal-title">Título del Pilar</h2>
+                    <p id="modal-description" class="modal-desc">Descripción completa detallada.</p>
+                    
+                    <div class="modal-highlights">
+                        <h4>Módulos de Aprendizaje Relacionados:</h4>
+                        <ul id="modal-bullets">
+                            <li>Tema clave 1</li>
+                            <li>Tema clave 2</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <a href="#waitlist" class="btn btn-primary" onclick="closePilarModal(event, true)">Asegurar cupo en Waitlist</a>
+                    </div>
+                </div>
+                <div class="modal-infographic-side">
+                    <!-- Infographic mockup with premium micro-grids -->
+                    <div class="premium-infographic">
+                        <div class="info-header" id="info-header-tag">PILAR I</div>
+                        <div class="info-graphic-preview">
+                            <div class="graphic-node active">
+                                <span class="node-label" id="node-label-1">Estructura de Datos</span>
+                                <span class="node-sub" id="node-sub-1">Auditoría 100% Digital</span>
+                            </div>
+                            <div class="graphic-line"></div>
+                            <div class="graphic-node">
+                                <span class="node-label" id="node-label-2">Toma de Decisiones</span>
+                                <span class="node-sub" id="node-sub-2">Monetización de Intangibles</span>
+                            </div>
+                        </div>
+                        <div class="info-footer">
+                            <span id="modal-page-ref">PAG. 4 - BROCHURE OFICIAL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -535,22 +581,114 @@
                 }
         }
 
-        // Toggle Expandable Architecture Cards
+        // Toggle Expandable Architecture Cards (Opens Premium Modal/Infographic Side)
+        const pilarData = {
+            1: {
+                title: "📊 I. Gobernanza de Datos",
+                desc: "Cimiento estratégico enfocado en estructurar flujos de datos dispersos del laboratorio científico. Permite automatizar la auditoría de procesos críticos y establecer bases sólidas de consistencia informacional, garantizando la reproducibilidad y trazabilidad en la toma de decisiones tecnológicas.",
+                bullets: [
+                    "Organización de repositorios de patentes y papers heterogéneos.",
+                    "Sistemas de versionado y trazabilidad de datos de laboratorio.",
+                    "Preparación del pipeline de datos para auditorías automatizadas."
+                ],
+                node1: "Estructura de Datos",
+                sub1: "Pipelines Automatizados",
+                node2: "Consistencia de Procesos",
+                sub2: "Trazabilidad 100% Auditable",
+                ref: "Pág. 4 - Brochure Oficial EGTBC"
+            },
+            2: {
+                title: "🤖 II. Autonomía Agéntica",
+                desc: "Reemplazo del esfuerzo manual en procesos de vigilancia tecnológica mediante el despliegue de Agentes Autónomos de Inteligencia Artificial. Estos asistentes monitorean fuentes clave las 24 horas del día, recopilando y pre-analizando tendencias tecnológicas de manera automática.",
+                bullets: [
+                    "Agentes de IA estructurados en arquitecturas multi-agente.",
+                    "Monitoreo 24/7 de competidores, publicaciones y registros de patentes.",
+                    "Generación automatizada de reportes listos para toma de decisión."
+                ],
+                node1: "Agentes Autónomos",
+                sub1: "Monitoreo 24/7 Activo",
+                node2: "Vigilancia Tecnológica",
+                sub2: "Reducción de Esfuerzo Manual",
+                ref: "Pág. 12 - Brochure Oficial EGTBC"
+            },
+            3: {
+                title: "🛡️ III. Inteligencia IP",
+                desc: "Mapeo crítico para determinar la viabilidad legal de innovaciones mediante análisis predictivos de Libertad de Operación (FTO). Blindaje jurídico temprano de activos intangibles y patentes a través del cruce inteligente de patentes activas y expiradas a nivel global.",
+                bullets: [
+                    "Estudios rápidos de FTO (Freedom To Operate).",
+                    "Mitigación predictiva de riesgos de infracción de patentes.",
+                    "Estrategia de redacción y blindaje de activos intangibles."
+                ],
+                node1: "Análisis FTO Predictivo",
+                sub1: "Seguridad Jurídica Integral",
+                node2: "Protección de Activos",
+                sub2: "Blindaje de Innovación",
+                ref: "Pág. 10 - Brochure Oficial EGTBC"
+            },
+            4: {
+                title: "💰 IV. Capitalización",
+                desc: "Transformación de los desarrollos científicos en unidades de negocio monetizables utilizando modelos modernos de Data-as-a-Service (DaaS) y la automatización de contratos inteligentes (Smart Contracts) para el cobro ágil y distribución de licencias de IP.",
+                bullets: [
+                    "Diseño de modelos de suscripción de datos de valor (DaaS).",
+                    "Smart Contracts para automatizar licenciamiento y regalías.",
+                    "Métricas e Infonomía para valorizar activos de propiedad intelectual."
+                ],
+                node1: "Modelos DaaS Habilitados",
+                sub1: "Monetización Inteligente",
+                node2: "Smart Contracts",
+                sub2: "Licenciamiento Automatizado",
+                ref: "Pág. 12 - Brochure Oficial EGTBC"
+            }
+        };
+
         function toggleCard(cardElement) {
-            // Toggle active class on clicked card
-            const isActive = cardElement.classList.contains('active');
+            // Find index from the card header text (I, II, III, IV)
+            const text = cardElement.querySelector('h3').innerText;
+            let index = 1;
+            if (text.includes("II.")) index = 2;
+            else if (text.includes("III.")) index = 3;
+            else if (text.includes("IV.")) index = 4;
             
-            // Close any other active cards first
-            document.querySelectorAll('.arch-card').forEach(card => {
-                card.classList.remove('active');
-                const indicator = card.querySelector('.expand-indicator');
-                if (indicator) indicator.innerHTML = 'Más información ▾';
+            const data = pilarData[index];
+            if (!data) return;
+
+            // Load data into modal fields
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-description').innerText = data.desc;
+            document.getElementById('info-header-tag').innerText = `PILAR ${"I".repeat(index)}`;
+            document.getElementById('modal-page-ref').innerText = data.ref.toUpperCase();
+            
+            // Nodes preview
+            document.getElementById('node-label-1').innerText = data.node1;
+            document.getElementById('node-sub-1').innerText = data.sub1;
+            document.getElementById('node-label-2').innerText = data.node2;
+            document.getElementById('node-sub-2').innerText = data.sub2;
+
+            // Bullet points
+            const bulletsContainer = document.getElementById('modal-bullets');
+            bulletsContainer.innerHTML = '';
+            data.bullets.forEach(bullet => {
+                const li = document.createElement('li');
+                li.innerText = bullet;
+                bulletsContainer.appendChild(li);
             });
-            
-            if (!isActive) {
-                cardElement.classList.add('active');
-                const indicator = cardElement.querySelector('.expand-indicator');
-                if (indicator) indicator.innerHTML = 'Menos información ▴';
+
+            // Open Modal
+            const modal = document.getElementById('pilar-modal');
+            if (modal) {
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden'; // Disable page scroll
+            }
+        }
+
+        function closePilarModal(event, forceClose = false) {
+            // Close if clicking outside the modal content or clicking the close button
+            if (forceClose || event.target.id === 'pilar-modal') {
+                const modal = document.getElementById('pilar-modal');
+                if (modal) {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = 'auto'; // Re-enable page scroll
+                }
             }
         }
     </script>
