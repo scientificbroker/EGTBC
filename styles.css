@@ -580,11 +580,6 @@ body.light-mode .arch-card {
     color: var(--text-secondary);
     font-size: 0.95rem;
     margin-bottom: 0.5rem;
-    transition: var(--transition);
-}
-
-.arch-card.expanded .arch-summary {
-    opacity: 0.8;
 }
 
 /* Close Card Button */
@@ -610,119 +605,110 @@ body.light-mode .arch-card {
     color: var(--brand-cyan);
 }
 
-/* Expanded content panel */
-.arch-expanded-panel {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    width: 100%;
-    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    margin-top: 0;
-    padding-top: 0;
-    text-align: left;
-}
-
-.arch-card.expanded .arch-expanded-panel {
-    max-height: 500px;
-    opacity: 1;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-}
-
-.expanded-layout {
+/* Slide Down vertical transition */
+.slide-down-container {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 1.5rem;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.3s ease-in-out, opacity 0.3s ease-in-out, margin-top 0.3s ease-in-out;
+    width: 100%;
+    overflow: hidden;
 }
 
-@media (max-width: 768px) {
-    .expanded-layout {
-        grid-template-columns: 1fr;
-    }
+.arch-card.expanded .slide-down-container {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 1rem;
 }
 
-.expanded-text p {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
+.slide-inner {
+    min-height: 0;
+}
+
+/* Infographic design styling */
+.infographic-container-wrapper {
+    background: rgba(7, 12, 20, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 0.5rem;
+}
+
+body.light-mode .infographic-container-wrapper {
+    background: rgba(0,0,0,0.02);
+    border-color: rgba(0,0,0,0.05);
+}
+
+.infographic-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
     margin-bottom: 1rem;
 }
 
-.page-ref {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--brand-cyan);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.info-bubble {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    width: 90%;
+    text-align: center;
 }
 
-/* Inline Infographic component design */
-.expanded-infographic {
-    background: rgba(7, 12, 20, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 1.25rem;
-    border-radius: 12px;
+.info-bubble.highlighted {
+    border-color: var(--brand-cyan);
+    background: rgba(6, 182, 212, 0.08);
+    color: var(--brand-cyan);
+    font-weight: 700;
+}
+
+.info-flow-line {
+    color: var(--brand-cyan);
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.infographic-caption {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+/* Expand Trigger Button */
+.expand-trigger-btn {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-body.light-mode .expanded-infographic {
-    background: rgba(0, 0, 0, 0.02);
-    border-color: rgba(0, 0, 0, 0.05);
-}
-
-.info-node {
-    background: rgba(6, 182, 212, 0.1);
-    border: 1px solid rgba(6, 182, 212, 0.2);
+    gap: 0.4rem;
     color: var(--brand-cyan);
-    padding: 0.5rem;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-align: center;
-}
-
-.info-node-sub {
-    background: rgba(9, 88, 217, 0.1);
-    border: 1px solid rgba(9, 88, 217, 0.2);
-    color: #3b82f6;
-    padding: 0.5rem;
-    border-radius: 6px;
-    font-size: 0.75rem;
     font-weight: 600;
-    text-align: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: var(--transition);
 }
 
-/* Card layout behavior for expanded state */
+.trigger-arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.arch-card.expanded .trigger-arrow {
+    transform: rotate(180deg);
+}
+
+/* Make sure cards keep centered layout when expanded */
 .arch-card.expanded {
-    grid-column: span 2;
-    transform: none !important;
+    grid-column: span 1; /* Force vertical stretch only, no layout breaking grid span changes */
     border-color: var(--brand-cyan);
     box-shadow: 0 10px 30px rgba(6, 182, 212, 0.15);
 }
 
-@media (max-width: 768px) {
-    .arch-card.expanded {
-        grid-column: span 1;
-    }
-}
-
-.expand-indicator {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--brand-cyan);
-    margin-top: 1rem;
-    transition: transform 0.3s ease;
-}
-
-.arch-card.expanded .expand-indicator {
-    display: none;
-}
 
 
 
