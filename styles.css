@@ -576,10 +576,57 @@ body.light-mode .arch-card {
     color: #fff;
 }
 
-.arch-card p {
+.arch-card .arch-summary {
     color: var(--text-secondary);
     font-size: 0.95rem;
+    margin-bottom: 0.5rem;
 }
+
+.arch-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    opacity: 0;
+    margin-top: 0;
+    text-align: left;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.arch-card.active .arch-details {
+    max-height: 250px;
+    opacity: 1;
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+
+.arch-details p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.page-ref {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--brand-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.expand-indicator {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--brand-cyan);
+    margin-top: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.arch-card.active .expand-indicator {
+    transform: rotate(180deg);
+}
+
 
 /* Evento Central */
 .evento {
