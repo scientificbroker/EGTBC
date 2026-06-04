@@ -580,30 +580,73 @@ body.light-mode .arch-card {
     color: var(--text-secondary);
     font-size: 0.95rem;
     margin-bottom: 0.5rem;
+    transition: var(--transition);
 }
 
-.arch-details {
+.arch-card.expanded .arch-summary {
+    opacity: 0.8;
+}
+
+/* Close Card Button */
+.close-card-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.8rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.arch-card.expanded .close-card-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.close-card-btn:hover {
+    color: var(--brand-cyan);
+}
+
+/* Expanded content panel */
+.arch-expanded-panel {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
     opacity: 0;
-    margin-top: 0;
-    text-align: left;
+    width: 100%;
+    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 0;
+    padding-top: 0;
+    text-align: left;
 }
 
-.arch-card.active .arch-details {
-    max-height: 250px;
+.arch-card.expanded .arch-expanded-panel {
+    max-height: 500px;
     opacity: 1;
-    margin-top: 1rem;
-    padding-top: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
 }
 
-.arch-details p {
+.expanded-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .expanded-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.expanded-text p {
     font-size: 0.9rem;
     line-height: 1.6;
     color: var(--text-secondary);
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
 }
 
 .page-ref {
@@ -615,6 +658,60 @@ body.light-mode .arch-card {
     letter-spacing: 1px;
 }
 
+/* Inline Infographic component design */
+.expanded-infographic {
+    background: rgba(7, 12, 20, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.25rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.75rem;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.light-mode .expanded-infographic {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.info-node {
+    background: rgba(6, 182, 212, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    color: var(--brand-cyan);
+    padding: 0.5rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.info-node-sub {
+    background: rgba(9, 88, 217, 0.1);
+    border: 1px solid rgba(9, 88, 217, 0.2);
+    color: #3b82f6;
+    padding: 0.5rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Card layout behavior for expanded state */
+.arch-card.expanded {
+    grid-column: span 2;
+    transform: none !important;
+    border-color: var(--brand-cyan);
+    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.15);
+}
+
+@media (max-width: 768px) {
+    .arch-card.expanded {
+        grid-column: span 1;
+    }
+}
+
 .expand-indicator {
     font-size: 0.8rem;
     font-weight: 600;
@@ -623,9 +720,10 @@ body.light-mode .arch-card {
     transition: transform 0.3s ease;
 }
 
-.arch-card.active .expand-indicator {
-    transform: rotate(180deg);
+.arch-card.expanded .expand-indicator {
+    display: none;
 }
+
 
 
 /* Evento Central */

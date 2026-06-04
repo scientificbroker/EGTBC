@@ -120,63 +120,103 @@
                 </div>
                 <div class="arch-grid">
                     <!-- Pilar I -->
-                    <div class="arch-card" onclick="toggleCard(this)" style="cursor: pointer;">
-                        <div class="arch-icon">
-                            <!-- Icon for Gobernanza (📊 Chart/Database) -->
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    <div class="arch-card" onclick="toggleCard(this, event)">
+                        <span class="close-card-btn" onclick="closeCard(this, event)">&times;</span>
+                        <div class="card-top-content">
+                            <div class="arch-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                            </div>
+                            <h3>📊 I. Gobernanza de Datos</h3>
+                            <p class="arch-summary">Cimiento estratégico para estructurar datos dispersos y auditar procesos.</p>
                         </div>
-                        <h3>📊 I. Gobernanza de Datos</h3>
-                        <p class="arch-summary">Cimiento estratégico para estructurar datos dispersos y auditar procesos.</p>
-                        <div class="arch-details">
-                            <p>Estructura y centraliza los flujos de datos científicos y tecnológicos del laboratorio. Este pilar permite organizar fuentes heterogéneas, automatizar la auditoría de procesos críticos y establecer bases sólidas para el análisis estratégico, garantizando la reproducibilidad y trazabilidad en la toma de decisiones.</p>
-                            <span class="page-ref">Brochure I EGTBC - Pág. 4</span>
+                        <div class="arch-expanded-panel">
+                            <div class="expanded-layout">
+                                <div class="expanded-text">
+                                    <p>Estructura y centraliza los flujos de datos científicos y tecnológicos del laboratorio. Este pilar permite organizar fuentes heterogéneas, automatizar la auditoría de procesos críticos y establecer bases sólidas para el análisis estratégico, garantizando la reproducibilidad y trazabilidad en la toma de decisiones.</p>
+                                    <span class="page-ref">Brochure I EGTBC - Pág. 4</span>
+                                </div>
+                                <div class="expanded-infographic">
+                                    <div class="info-node">Estructura de Datos ➔ Pipelines Automatizados</div>
+                                    <div class="info-node-sub">Auditoría de Datos ➔ Consistencia Completa</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="expand-indicator">Mas información ▾</div>
+                        <div class="expand-indicator">Más información ▾</div>
                     </div>
 
                     <!-- Pilar II -->
-                    <div class="arch-card" onclick="toggleCard(this)" style="cursor: pointer;">
-                        <div class="arch-icon">
-                            <!-- Icon for Autonomía Agéntica (🤖 Robot) -->
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="6" height="6" rx="1"></rect><rect x="5" y="5" width="14" height="14" rx="2"></rect><path d="M9 1v4M15 1v4M5 10H1M19 10h4M12 19v4"></path></svg>
+                    <div class="arch-card" onclick="toggleCard(this, event)">
+                        <span class="close-card-btn" onclick="closeCard(this, event)">&times;</span>
+                        <div class="card-top-content">
+                            <div class="arch-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="6" height="6" rx="1"></rect><rect x="5" y="5" width="14" height="14" rx="2"></rect><path d="M9 1v4M15 1v4M5 10H1M19 10h4M12 19v4"></path></svg>
+                            </div>
+                            <h3>🤖 II. Autonomía Agéntica</h3>
+                            <p class="arch-summary">IA y automatización para sustituir el esfuerzo manual en vigilancia tecnológica.</p>
                         </div>
-                        <h3>🤖 II. Autonomía Agéntica</h3>
-                        <p class="arch-summary">IA y automatización para sustituir el esfuerzo manual en vigilancia tecnológica.</p>
-                        <div class="arch-details">
-                            <p>Implementación de agentes inteligentes y sistemas autónomos de Inteligencia Artificial que ejecutan flujos de trabajo de vigilancia y monitoreo tecnológico las 24 horas del día. Elimina el esfuerzo humano repetitivo en la recopilación de papers, patentes y competidores, acelerando la generación de reportes listos para analizar.</p>
-                            <span class="page-ref">Brochure I EGTBC - Pág. 12</span>
+                        <div class="arch-expanded-panel">
+                            <div class="expanded-layout">
+                                <div class="expanded-text">
+                                    <p>Implementación de agentes inteligentes y sistemas autónomos de Inteligencia Artificial que ejecutan flujos de trabajo de vigilancia y monitoreo tecnológico las 24 horas del día. Elimina el esfuerzo humano repetitivo en la recopilación de papers, patentes y competidores, acelerando la generación de reportes listos para analizar.</p>
+                                    <span class="page-ref">Brochure I EGTBC - Pág. 12</span>
+                                </div>
+                                <div class="expanded-infographic">
+                                    <div class="info-node">Agentes Autónomos ➔ Monitoreo Activo 24/7</div>
+                                    <div class="info-node-sub">Vigilancia Tecnológica ➔ Reportes Listos</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="expand-indicator">Mas información ▾</div>
+                        <div class="expand-indicator">Más información ▾</div>
                     </div>
 
                     <!-- Pilar III -->
-                    <div class="arch-card" onclick="toggleCard(this)" style="cursor: pointer;">
-                        <div class="arch-icon">
-                            <!-- Icon for Inteligencia IP (🛡️ Shield) -->
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <div class="arch-card" onclick="toggleCard(this, event)">
+                        <span class="close-card-btn" onclick="closeCard(this, event)">&times;</span>
+                        <div class="card-top-content">
+                            <div class="arch-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            </div>
+                            <h3>🛡️ III. Inteligencia IP</h3>
+                            <p class="arch-summary">Mapeo crítico de Libertad de Operación (FTO) y seguridad jurídica.</p>
                         </div>
-                        <h3>🛡️ III. Inteligencia IP</h3>
-                        <p class="arch-summary">Mapeo crítico de Libertad de Operación (FTO) y seguridad jurídica.</p>
-                        <div class="arch-details">
-                            <p>Análisis de patentabilidad e inteligencia en Propiedad Intelectual (IP) para mitigar riesgos legales de infracción. Ejecuta de forma predictiva estudios de Libertad de Operación (Freedom to Operate - FTO), permitiendo blindar los desarrollos tecnológicos y asegurar los intangibles de la organización antes del lanzamiento al mercado.</p>
-                            <span class="page-ref">Brochure I EGTBC - Pág. 10</span>
+                        <div class="arch-expanded-panel">
+                            <div class="expanded-layout">
+                                <div class="expanded-text">
+                                    <p>Análisis de patentabilidad e inteligencia en Propiedad Intelectual (IP) para mitigar riesgos legales de infracción. Ejecuta de forma predictiva estudios de Libertad de Operación (Freedom to Operate - FTO), permitiendo blindar los desarrollos tecnológicos y asegurar los intangibles de la organización antes del lanzamiento al mercado.</p>
+                                    <span class="page-ref">Brochure I EGTBC - Pág. 10</span>
+                                </div>
+                                <div class="expanded-infographic">
+                                    <div class="info-node">Libertad de Operación (FTO) ➔ Estudios de Patentes</div>
+                                    <div class="info-node-sub">Seguridad Jurídica ➔ Blindaje de Innovación</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="expand-indicator">Mas información ▾</div>
+                        <div class="expand-indicator">Más información ▾</div>
                     </div>
 
                     <!-- Pilar IV -->
-                    <div class="arch-card" onclick="toggleCard(this)" style="cursor: pointer;">
-                        <div class="arch-icon">
-                            <!-- Icon for Capitalización (💰 Money) -->
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    <div class="arch-card" onclick="toggleCard(this, event)">
+                        <span class="close-card-btn" onclick="closeCard(this, event)">&times;</span>
+                        <div class="card-top-content">
+                            <div class="arch-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                            </div>
+                            <h3>💰 IV. Capitalización</h3>
+                            <p class="arch-summary">Modelos DaaS y Smart Contracts para monetizar intangibles.</p>
                         </div>
-                        <h3>💰 IV. Capitalización</h3>
-                        <p class="arch-summary">Modelos DaaS y Smart Contracts para monetizar intangibles.</p>
-                        <div class="arch-details">
-                            <p>Diseño de modelos de negocio basados en Data-as-a-Service (DaaS) y la habilitación de transferencias tecnológicas automatizadas mediante contratos inteligentes. Facilita la valorización, licenciamiento y monetización directa de activos intangibles y desarrollos científicos generados en el ecosistema.</p>
-                            <span class="page-ref">Brochure I EGTBC - Pág. 12</span>
+                        <div class="arch-expanded-panel">
+                            <div class="expanded-layout">
+                                <div class="expanded-text">
+                                    <p>Diseño de modelos de negocio basados en Data-as-a-Service (DaaS) y la habilitación de transferencias tecnológicas automatizadas mediante contratos inteligentes. Facilita la valorización, licenciamiento y monetización directa de activos intangibles y desarrollos científicos generados en el ecosistema.</p>
+                                    <span class="page-ref">Brochure I EGTBC - Pág. 12</span>
+                                </div>
+                                <div class="expanded-infographic">
+                                    <div class="info-node">Monetización DaaS ➔ Smart Contracts</div>
+                                    <div class="info-node-sub">Transferencia Tecnológica ➔ Regalías Directas</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="expand-indicator">Mas información ▾</div>
+                        <div class="expand-indicator">Más información ▾</div>
                     </div>
                 </div>
             </div>
@@ -292,51 +332,7 @@
         </div>
     </section>
 
-    <!-- Modal para visualización interactiva de Infografía de los Pilares -->
-    <div id="pilar-modal" class="pilar-modal" onclick="closePilarModal(event)">
-        <div class="pilar-modal-content">
-            <span class="close-modal-btn" onclick="closePilarModal(event, true)">&times;</span>
-            <div class="modal-body-layout">
-                <div class="modal-text-side">
-                    <span class="modal-badge">DETALLES DEL PILAR</span>
-                    <h2 id="modal-title">Título del Pilar</h2>
-                    <p id="modal-description" class="modal-desc">Descripción completa detallada.</p>
-                    
-                    <div class="modal-highlights">
-                        <h4>Módulos de Aprendizaje Relacionados:</h4>
-                        <ul id="modal-bullets">
-                            <li>Tema clave 1</li>
-                            <li>Tema clave 2</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="margin-top: 2rem;">
-                        <a href="#waitlist" class="btn btn-primary" onclick="closePilarModal(event, true)">Asegurar cupo en Waitlist</a>
-                    </div>
-                </div>
-                <div class="modal-infographic-side">
-                    <!-- Infographic mockup with premium micro-grids -->
-                    <div class="premium-infographic">
-                        <div class="info-header" id="info-header-tag">PILAR I</div>
-                        <div class="info-graphic-preview">
-                            <div class="graphic-node active">
-                                <span class="node-label" id="node-label-1">Estructura de Datos</span>
-                                <span class="node-sub" id="node-sub-1">Auditoría 100% Digital</span>
-                            </div>
-                            <div class="graphic-line"></div>
-                            <div class="graphic-node">
-                                <span class="node-label" id="node-label-2">Toma de Decisiones</span>
-                                <span class="node-sub" id="node-sub-2">Monetización de Intangibles</span>
-                            </div>
-                        </div>
-                        <div class="info-footer">
-                            <span id="modal-page-ref">PAG. 4 - BROCHURE OFICIAL</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Footer -->
     <footer class="footer">
@@ -581,114 +577,40 @@
                 }
         }
 
-        // Toggle Expandable Architecture Cards (Opens Premium Modal/Infographic Side)
-        const pilarData = {
-            1: {
-                title: "📊 I. Gobernanza de Datos",
-                desc: "Cimiento estratégico enfocado en estructurar flujos de datos dispersos del laboratorio científico. Permite automatizar la auditoría de procesos críticos y establecer bases sólidas de consistencia informacional, garantizando la reproducibilidad y trazabilidad en la toma de decisiones tecnológicas.",
-                bullets: [
-                    "Organización de repositorios de patentes y papers heterogéneos.",
-                    "Sistemas de versionado y trazabilidad de datos de laboratorio.",
-                    "Preparación del pipeline de datos para auditorías automatizadas."
-                ],
-                node1: "Estructura de Datos",
-                sub1: "Pipelines Automatizados",
-                node2: "Consistencia de Procesos",
-                sub2: "Trazabilidad 100% Auditable",
-                ref: "Pág. 4 - Brochure Oficial EGTBC"
-            },
-            2: {
-                title: "🤖 II. Autonomía Agéntica",
-                desc: "Reemplazo del esfuerzo manual en procesos de vigilancia tecnológica mediante el despliegue de Agentes Autónomos de Inteligencia Artificial. Estos asistentes monitorean fuentes clave las 24 horas del día, recopilando y pre-analizando tendencias tecnológicas de manera automática.",
-                bullets: [
-                    "Agentes de IA estructurados en arquitecturas multi-agente.",
-                    "Monitoreo 24/7 de competidores, publicaciones y registros de patentes.",
-                    "Generación automatizada de reportes listos para toma de decisión."
-                ],
-                node1: "Agentes Autónomos",
-                sub1: "Monitoreo 24/7 Activo",
-                node2: "Vigilancia Tecnológica",
-                sub2: "Reducción de Esfuerzo Manual",
-                ref: "Pág. 12 - Brochure Oficial EGTBC"
-            },
-            3: {
-                title: "🛡️ III. Inteligencia IP",
-                desc: "Mapeo crítico para determinar la viabilidad legal de innovaciones mediante análisis predictivos de Libertad de Operación (FTO). Blindaje jurídico temprano de activos intangibles y patentes a través del cruce inteligente de patentes activas y expiradas a nivel global.",
-                bullets: [
-                    "Estudios rápidos de FTO (Freedom To Operate).",
-                    "Mitigación predictiva de riesgos de infracción de patentes.",
-                    "Estrategia de redacción y blindaje de activos intangibles."
-                ],
-                node1: "Análisis FTO Predictivo",
-                sub1: "Seguridad Jurídica Integral",
-                node2: "Protección de Activos",
-                sub2: "Blindaje de Innovación",
-                ref: "Pág. 10 - Brochure Oficial EGTBC"
-            },
-            4: {
-                title: "💰 IV. Capitalización",
-                desc: "Transformación de los desarrollos científicos en unidades de negocio monetizables utilizando modelos modernos de Data-as-a-Service (DaaS) y la automatización de contratos inteligentes (Smart Contracts) para el cobro ágil y distribución de licencias de IP.",
-                bullets: [
-                    "Diseño de modelos de suscripción de datos de valor (DaaS).",
-                    "Smart Contracts para automatizar licenciamiento y regalías.",
-                    "Métricas e Infonomía para valorizar activos de propiedad intelectual."
-                ],
-                node1: "Modelos DaaS Habilitados",
-                sub1: "Monetización Inteligente",
-                node2: "Smart Contracts",
-                sub2: "Licenciamiento Automatizado",
-                ref: "Pág. 12 - Brochure Oficial EGTBC"
-            }
-        };
+        // Toggle Inline Card Expansion
+        function toggleCard(cardElement, event) {
+            // Prevent execution if clicking the close button
+            if (event.target.classList.contains('close-card-btn')) return;
 
-        function toggleCard(cardElement) {
-            // Find index from the card header text (I, II, III, IV)
-            const text = cardElement.querySelector('h3').innerText;
-            let index = 1;
-            if (text.includes("II.")) index = 2;
-            else if (text.includes("III.")) index = 3;
-            else if (text.includes("IV.")) index = 4;
-            
-            const data = pilarData[index];
-            if (!data) return;
+            const isAlreadyExpanded = cardElement.classList.contains('expanded');
 
-            // Load data into modal fields
-            document.getElementById('modal-title').innerText = data.title;
-            document.getElementById('modal-description').innerText = data.desc;
-            document.getElementById('info-header-tag').innerText = `PILAR ${"I".repeat(index)}`;
-            document.getElementById('modal-page-ref').innerText = data.ref.toUpperCase();
-            
-            // Nodes preview
-            document.getElementById('node-label-1').innerText = data.node1;
-            document.getElementById('node-sub-1').innerText = data.sub1;
-            document.getElementById('node-label-2').innerText = data.node2;
-            document.getElementById('node-sub-2').innerText = data.sub2;
-
-            // Bullet points
-            const bulletsContainer = document.getElementById('modal-bullets');
-            bulletsContainer.innerHTML = '';
-            data.bullets.forEach(bullet => {
-                const li = document.createElement('li');
-                li.innerText = bullet;
-                bulletsContainer.appendChild(li);
+            // Close all other expanded cards first
+            document.querySelectorAll('.arch-card').forEach(card => {
+                card.classList.remove('expanded');
+                const indicator = card.querySelector('.expand-indicator');
+                if (indicator) indicator.innerHTML = 'Más información ▾';
             });
 
-            // Open Modal
-            const modal = document.getElementById('pilar-modal');
-            if (modal) {
-                modal.classList.add('show');
-                document.body.style.overflow = 'hidden'; // Disable page scroll
+            if (!isAlreadyExpanded) {
+                cardElement.classList.add('expanded');
+                const indicator = cardElement.querySelector('.expand-indicator');
+                if (indicator) indicator.innerHTML = 'Menos información ▴';
+                
+                // Smooth scroll to the expanded card
+                setTimeout(() => {
+                    cardElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 150);
             }
         }
 
-        function closePilarModal(event, forceClose = false) {
-            // Close if clicking outside the modal content or clicking the close button
-            if (forceClose || event.target.id === 'pilar-modal') {
-                const modal = document.getElementById('pilar-modal');
-                if (modal) {
-                    modal.classList.remove('show');
-                    document.body.style.overflow = 'auto'; // Re-enable page scroll
-                }
+        // Close specific card helper (floating X button)
+        function closeCard(btnElement, event) {
+            event.stopPropagation(); // Prevent card body click from firing toggleCard again
+            const card = btnElement.closest('.arch-card');
+            if (card) {
+                card.classList.remove('expanded');
+                const indicator = card.querySelector('.expand-indicator');
+                if (indicator) indicator.innerHTML = 'Más información ▾';
             }
         }
     </script>
