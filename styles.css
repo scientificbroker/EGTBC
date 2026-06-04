@@ -532,13 +532,19 @@ body.light-mode .architecture {
     border: 1px solid var(--border-light);
     border-radius: 16px;
     padding: 2rem;
-    transition: var(--transition);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     position: relative;
     z-index: 1;
+    overflow: hidden;
+    max-height: 380px; /* Base height when closed */
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.arch-card.expanded {
+    max-height: 800px; /* Safe limit to fit expanded accordion content */
 }
 
 body.light-mode .arch-card {
