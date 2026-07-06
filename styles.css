@@ -609,7 +609,7 @@ body.light-mode .arch-card {
 .arch-card h3 {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
-    color: #fff;
+    color: var(--text-primary);
 }
 
 .arch-card .arch-summary {
