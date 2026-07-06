@@ -149,6 +149,29 @@ a {
     box-shadow: 0 8px 20px rgba(9, 88, 217, 0.3);
 }
 
+.btn-luma {
+    background-color: #ffe6eb;
+    color: #e0245e;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
+    border: 1px solid rgba(224, 36, 94, 0.2);
+}
+
+.btn-luma:hover {
+    background-color: #ffccd5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(224, 36, 94, 0.15);
+}
+
+.luma-icon {
+    width: 18px;
+    height: 18px;
+}
+
 .btn-block {
     width: 100%;
 }
@@ -557,6 +580,13 @@ body.light-mode .arch-card {
     transform: translateY(-5px);
     border-color: var(--brand-cyan);
     box-shadow: 0 10px 30px rgba(6, 182, 212, 0.1);
+}
+
+.card-top-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .arch-icon {

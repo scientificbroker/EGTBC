@@ -269,6 +269,10 @@
                     <div class="day-content">
                         <h3>Día 01: Estratégico</h3>
                         <p>La primera jornada se centra en establecer las bases normativas y métricas actuales para la transferencia de tecnología. Se inicia con una plenaria sobre las métricas ICTT 2025.</p>
+                        <a href="https://luma.com/nogj1ffm" target="_blank" rel="noopener noreferrer" class="btn btn-luma">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="luma-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            Registrarse en Luma
+                        </a>
                     </div>
                 </div>
 
@@ -280,6 +284,10 @@
                     <div class="day-content">
                         <h3>Día 02: Tecnológico</h3>
                         <p>El segundo día está dedicado a la aplicación de herramientas agénticas para la gestión tecnológica. Aquí se busca fortalecer y acelerar el proceso de vigilancia y maduración en PI.</p>
+                        <a href="https://luma.com/lkgwarmm" target="_blank" rel="noopener noreferrer" class="btn btn-luma">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="luma-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            Registrarse en Luma
+                        </a>
                     </div>
                 </div>
 
@@ -291,6 +299,10 @@
                     <div class="day-content">
                         <h3>Día 03: Comercial</h3>
                         <p>El cierre del evento se enfoca en la monetización y el marco legal de la innovación. Se analizan temas de Infonomía en LATAM y la Decisión Andina 486.</p>
+                        <a href="https://luma.com/6wynqtf0" target="_blank" rel="noopener noreferrer" class="btn btn-luma">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="luma-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            Registrarse en Luma
+                        </a>
                     </div>
                 </div>
             </div>
@@ -355,6 +367,14 @@
                         </select>
                         <button type="submit" class="btn btn-primary btn-block">Unirme a la Waitlist</button>
                     </form>
+                    <div id="waitlist-success" style="display: none; text-align: center; padding: 2rem 0;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-cyan)" stroke-width="2" style="width: 60px; height: 60px; margin-bottom: 1rem;">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <h3 style="margin-bottom: 1rem;">¡Gracias por registrarte!</h3>
+                        <p style="color: var(--text-secondary);">Hemos guardado tus datos exitosamente. Te contactaremos pronto con más novedades del evento.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -592,17 +612,27 @@
 
                     if (response.ok) {
                         showNotification('¡Te has registrado con éxito en la waitlist!');
-                        waitlistForm.reset();
+                        waitlistForm.style.display = 'none';
+                        document.querySelector('.price-header').style.display = 'none';
+                        document.getElementById('waitlist-success').style.display = 'block';
                     } else {
-                        showNotification(result.error || 'Hubo un error al registrarte. Inténtalo de nuevo.', false);
+                        // Improve error handling
+                        const errorMsg = result.error || 'Hubo un error al registrarte. Inténtalo de nuevo.';
+                        showNotification(errorMsg, false);
+                        
+                        // Show specific duplicate error if applicable
+                        if(errorMsg.includes('duplicate') || errorMsg.includes('unique')) {
+                            showNotification('Este correo o número ya se encuentra registrado.', false);
+                        }
                     }
                 } catch (error) {
                     console.error('Error:', error);
-                    showNotification('Error de conexión con el servidor local.', false);
+                    showNotification('Error de conexión. Por favor verifica tu red.', false);
                 } finally {
                     btn.innerHTML = originalText;
                     btn.disabled = false;
                 }
+            });
         }
 
         // Toggle Inline Card Expansion (Slide Down Accordion)
