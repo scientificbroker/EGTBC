@@ -1,6 +1,7 @@
 # Credenciales — NUNCA subir a GitHub
 .streamlit/secrets.toml
 credentials.json
+*.json
 *.pem
 *.key
 

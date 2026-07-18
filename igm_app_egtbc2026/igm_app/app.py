@@ -20,67 +20,57 @@ st.set_page_config(
 # ──────────────────────────────────────────────────
 st.markdown("""
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
   html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
+  h1, h2, h3, h4, .header-title, .metric-value, .igm-value { font-family: 'Outfit', sans-serif; }
 
+  /* Header Banner - Executive Deep Obsidian & Neon Cyan Glow */
   .header-banner {
-    background: linear-gradient(90deg, #0F2A5C 0%, #1A4A8A 60%, #00B8A9 100%);
-    padding: 18px 28px; border-radius: 12px; margin-bottom: 24px;
-    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(135deg, #0A192F 0%, #172A45 50%, #008080 100%);
+    padding: 24px 32px; border-radius: 16px; margin-bottom: 26px;
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
   }
-  .header-title { color: white; font-size: 1.6rem; font-weight: 700; margin: 0; }
-  .header-sub   { color: #B2EBF2; font-size: 0.85rem; margin: 4px 0 0 0; }
+  .header-title { color: #FFFFFF; font-size: 1.7rem; font-weight: 800; letter-spacing: -0.02em; margin: 0; }
+  .header-sub   { color: #A8B2D1; font-size: 0.88rem; font-weight: 400; margin: 6px 0 0 0; line-height: 1.4; }
 
+  /* Glassmorphic Translucent Cards (Adaptive & Clean) */
   .card {
-    background: white; border-radius: 10px; padding: 20px 24px;
-    border: 1px solid #E0E0E0; margin-bottom: 16px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    background: rgba(23, 42, 69, 0.4); border-radius: 14px; padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.12); margin-bottom: 20px;
   }
-  .card-header {
-    font-weight: 700; font-size: 1rem; margin-bottom: 14px;
-    padding-bottom: 10px; border-bottom: 2px solid;
-  }
+  .card-header { font-weight: 700; font-size: 1.05rem; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.15); }
 
+  /* KPI Metric Boxes - Executive Minimalist */
   .metric-box {
-    border-radius: 10px; padding: 16px 20px; text-align: center;
-    border: 1px solid #E0E0E0;
+    background: rgba(23, 42, 69, 0.45); border-radius: 14px; padding: 18px 16px; text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.12); transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
-  .metric-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; }
-  .metric-value { font-size: 2rem; font-weight: 700; line-height: 1.1; }
-  .metric-sub   { font-size: 0.72rem; color: #888; margin-top: 2px; }
+  .metric-box:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+  .metric-label { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+  .metric-value { font-size: 2.1rem; font-weight: 800; line-height: 1.1; margin-bottom: 4px; }
+  .metric-sub   { font-size: 0.74rem; opacity: 0.8; font-weight: 500; }
 
-  .semaforo-verde   { background:#D5F5E3; border:2px solid #1A7B4E; }
-  .semaforo-amarillo{ background:#FFF3CD; border:2px solid #B45309; }
-  .semaforo-rojo    { background:#FFEBEE; border:2px solid #C62828; }
-
+  /* IGM Result Box */
   .igm-result {
-    border-radius: 14px; padding: 22px 28px; text-align: center;
-    margin-top: 10px; border: 3px solid;
+    border-radius: 16px; padding: 26px 32px; text-align: center;
+    margin-top: 14px; border: 2px solid; background: rgba(23, 42, 69, 0.5);
   }
-  .igm-value  { font-size: 3.5rem; font-weight: 800; line-height: 1; }
-  .igm-label  { font-size: 1.1rem; font-weight: 600; margin-top: 6px; }
-  .igm-action { font-size: 0.9rem; margin-top: 4px; }
+  .igm-value  { font-size: 3.6rem; font-weight: 800; line-height: 1; letter-spacing: -0.03em; }
+  .igm-label  { font-size: 1.2rem; font-weight: 700; margin-top: 8px; }
+  .igm-action { font-size: 0.94rem; opacity: 0.9; margin-top: 6px; font-weight: 500; }
 
-  .pill {
-    display: inline-block; border-radius: 20px; padding: 3px 14px;
-    font-size: 0.78rem; font-weight: 600; margin: 2px;
-  }
-
-  .stSlider > div > div > div > div { background: #00B8A9 !important; }
-  .stSlider [data-testid="stThumbValue"] { color: #0F2A5C !important; font-weight: 700; }
-
-  div[data-testid="stSelectbox"] label { font-weight: 600; }
-  div[data-testid="stTextInput"]  label { font-weight: 600; }
-
+  /* Matching Rows in Ranking */
   .matching-row {
-    background: white; border-radius: 10px; padding: 14px 18px;
-    border-left: 5px solid; margin-bottom: 10px;
-    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(23, 42, 69, 0.35); border-radius: 12px; padding: 16px 22px;
+    border: 1px solid rgba(255, 255, 255, 0.1); border-left: 6px solid; margin-bottom: 12px;
+    display: flex; align-items: center; justify-content: space-between; transition: all 0.2s ease;
   }
+  .matching-row:hover { background: rgba(23, 42, 69, 0.6); transform: translateX(4px); }
 
   footer { visibility: hidden; }
   #MainMenu { visibility: hidden; }
-</style>
 """, unsafe_allow_html=True)
 
 # ──────────────────────────────────────────────────
@@ -101,8 +91,8 @@ PREGUNTAS = {
     "ICG": {
         "nombre": "Compatibilidad Global",
         "peso": 0.40,
-        "color": "#1A5276",
-        "bg": "#D6EAF8",
+        "color": "#00E5FF",
+        "bg": "rgba(0, 229, 255, 0.08)",
         "items": [
             ("P1.1", "TRL Alignment",
              "¿Qué tan cercana está la TRL actual a la que necesita la empresa?",
@@ -121,8 +111,8 @@ PREGUNTAS = {
     "IVC": {
         "nombre": "Viabilidad Comercial",
         "peso": 0.35,
-        "color": "#1A7B4E",
-        "bg": "#D5F5E3",
+        "color": "#00E676",
+        "bg": "rgba(0, 230, 118, 0.08)",
         "items": [
             ("P2.1", "Presupuesto I+D",
              "¿La empresa tiene presupuesto REAL para financiar la implementación?",
@@ -144,8 +134,8 @@ PREGUNTAS = {
     "IRR": {
         "nombre": "Retorno y Riesgo",
         "peso": 0.25,
-        "color": "#7D3C98",
-        "bg": "#E8DAEF",
+        "color": "#E040FB",
+        "bg": "rgba(224, 64, 251, 0.08)",
         "items": [
             ("P3.1", "ROI Estimado",
              "¿Cuál es el retorno de inversión esperado para la empresa si la TT es exitosa?",
@@ -336,13 +326,13 @@ def calcular_igm(scores: dict):
 def semaforo_info(igm: float):
     if igm >= 7.0:
         return ("🟢 VERDE", "Formar equipo INMEDIATAMENTE",
-                "#D5F5E3", "#1A7B4E", "semaforo-verde")
+                "rgba(0, 230, 118, 0.12)", "#00E676", "semaforo-verde")
     elif igm >= 5.0:
         return ("🟡 AMARILLO", "Segunda evaluación + condiciones",
-                "#FFF3CD", "#B45309", "semaforo-amarillo")
+                "rgba(255, 213, 79, 0.12)", "#FFD54F", "semaforo-amarillo")
     else:
         return ("🔴 ROJO", "No viable — documentar y redirigir",
-                "#FFEBEE", "#C62828", "semaforo-rojo")
+                "rgba(255, 82, 82, 0.12)", "#FF5252", "semaforo-rojo")
 
 # ──────────────────────────────────────────────────
 # COMPONENTES UI
@@ -355,9 +345,9 @@ def render_header():
         <p class="header-sub">I Encuentro de Gestores Tecnológicos y Brokers Científicos 2026
            · Día 3 · OPEN PUCP San Miguel · Grupo Biogenia × CIDE-PUCP × BioActiva</p>
       </div>
-      <div style="color:#B2EBF2; font-size:0.82rem; text-align:right;">
+      <div style="color:#00E5FF; font-size:0.84rem; text-align:right; font-weight:600;">
         IGM = (ICG×0.40) + (IVC×0.35) + (IRR×0.25)<br>
-        Escala Likert 1–5 → convertida a 0–10
+        <span style="opacity:0.8; font-weight:400; color:#A8B2D1;">Escala Likert 1–5 → convertida a 0–10</span>
       </div>
     </div>
     """, unsafe_allow_html=True)
@@ -370,18 +360,18 @@ def render_subindice(key_prefix: str, config: dict, expanded: bool = True):
     items  = config["items"]
 
     with st.expander(
-        f"**{key_prefix} — {nombre}** · Peso {peso}%",
+        f"**{key_prefix} — {nombre}** (Peso {peso}%)",
         expanded=expanded
     ):
         scores = {}
         for pid, titulo, pregunta, escala in items:
             st.markdown(f"""
-            <div style="background:{bg}; border-radius:8px; padding:10px 14px;
-                        margin-bottom:6px; border-left:4px solid {color}">
-              <span style="color:{color}; font-weight:700; font-size:0.82rem;">{pid}</span>
-              <span style="font-weight:600; font-size:0.92rem; margin-left:8px;">{titulo}</span><br>
-              <span style="font-size:0.83rem; color:#444;">{pregunta}</span><br>
-              <span style="font-size:0.75rem; color:#777; font-style:italic;">{escala}</span>
+            <div style="background:{bg}; border-radius:10px; padding:12px 16px;
+                        margin-bottom:8px; border-left:4px solid {color}; border:1px solid rgba(255,255,255,0.08);">
+              <span style="color:{color}; font-weight:700; font-size:0.84rem;">{pid}</span>
+              <span style="font-weight:700; font-size:0.95rem; margin-left:8px; color:#FFFFFF;">{titulo}</span><br>
+              <span style="font-size:0.84rem; color:#CCD6F6; margin-top:4px; display:inline-block;">{pregunta}</span><br>
+              <span style="font-size:0.75rem; color:#8892B0; font-style:italic;">{escala}</span>
             </div>
             """, unsafe_allow_html=True)
             scores[pid] = st.slider(
@@ -396,14 +386,14 @@ def render_igm_card(icg, ivc, irr, igm):
     sem, accion, bg, fg, css_class = semaforo_info(igm)
     c1, c2, c3, c4 = st.columns(4)
     metrics = [
-        (c1, "ICG", icg, "#1A5276", "#D6EAF8", "Compat. Global ×0.40"),
-        (c2, "IVC", ivc, "#1A7B4E", "#D5F5E3", "Viabilidad Comercial ×0.35"),
-        (c3, "IRR", irr, "#7D3C98", "#E8DAEF", "Retorno y Riesgo ×0.25"),
-        (c4, "IGM", igm, fg,         bg,         "Índice de Matchmaking Global"),
+        (c1, "ICG", icg, "#00E5FF", "rgba(0, 229, 255, 0.08)", "Compat. Global ×0.40"),
+        (c2, "IVC", ivc, "#00E676", "rgba(0, 230, 118, 0.08)", "Viabilidad Comercial ×0.35"),
+        (c3, "IRR", irr, "#E040FB", "rgba(224, 64, 251, 0.08)", "Retorno y Riesgo ×0.25"),
+        (c4, "IGM", igm, fg,         bg,                         "Índice de Matchmaking"),
     ]
     for col, lbl, val, fc, bc, sub in metrics:
         with col:
-            brd = "3px solid" if lbl == "IGM" else "1px solid"
+            brd = "2px solid" if lbl == "IGM" else "1px solid"
             st.markdown(f"""
             <div class="metric-box"
                  style="background:{bc}; border:{brd} {fc};">
@@ -411,7 +401,7 @@ def render_igm_card(icg, ivc, irr, igm):
               <div class="metric-value" style="color:{fc};">
                   {'<b>' if lbl=='IGM' else ''}{val:.1f}{'</b>' if lbl=='IGM' else ''}
               </div>
-              <div class="metric-sub">{sub}</div>
+              <div class="metric-sub" style="color:#A8B2D1;">{sub}</div>
             </div>
             """, unsafe_allow_html=True)
 
@@ -419,7 +409,7 @@ def render_igm_card(icg, ivc, irr, igm):
     <div class="igm-result" style="background:{bg}; border-color:{fg};">
       <div class="igm-value" style="color:{fg};">{igm:.2f} / 10</div>
       <div class="igm-label" style="color:{fg};">{sem}</div>
-      <div class="igm-action" style="color:{fg};">{accion}</div>
+      <div class="igm-action" style="color:#CCD6F6;">{accion}</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -587,38 +577,38 @@ elif pagina == "📊 Dashboard en Tiempo Real":
 
     m1, m2, m3, m4, m5 = st.columns([1.1, 1.1, 1.1, 1.1, 1.5])
     with m1:
-        st.markdown(f"""<div class="metric-box" style="background:#D6E8F7;border:2px solid #0F2A5C;">
-        <div class="metric-label" style="color:#0F2A5C;">TOTAL FILTRADO</div>
-        <div class="metric-value" style="color:#0F2A5C;">{n}</div>
-        <div class="metric-sub">Pares evaluados</div></div>""", unsafe_allow_html=True)
+        st.markdown(f"""<div class="metric-box" style="background:rgba(0, 229, 255, 0.08);border:1px solid #00E5FF;">
+        <div class="metric-label" style="color:#00E5FF;">TOTAL FILTRADO</div>
+        <div class="metric-value" style="color:#FFFFFF;">{n}</div>
+        <div class="metric-sub" style="color:#A8B2D1;">Pares evaluados</div></div>""", unsafe_allow_html=True)
     with m2:
-        st.markdown(f"""<div class="metric-box" style="background:#D5F5E3;border:2px solid #1A7B4E;">
-        <div class="metric-label" style="color:#1A7B4E;">🟢 VERDE ({pct_v:.0f}%)</div>
-        <div class="metric-value" style="color:#1A7B4E;">{verde_cnt}</div>
-        <div class="metric-sub">Equipo inmediato</div></div>""", unsafe_allow_html=True)
+        st.markdown(f"""<div class="metric-box" style="background:rgba(0, 230, 118, 0.08);border:1px solid #00E676;">
+        <div class="metric-label" style="color:#00E676;">🟢 VERDE ({pct_v:.0f}%)</div>
+        <div class="metric-value" style="color:#FFFFFF;">{verde_cnt}</div>
+        <div class="metric-sub" style="color:#A8B2D1;">Equipo inmediato</div></div>""", unsafe_allow_html=True)
     with m3:
-        st.markdown(f"""<div class="metric-box" style="background:#FFF3CD;border:2px solid #B45309;">
-        <div class="metric-label" style="color:#B45309;">🟡 AMARILLO ({pct_a:.0f}%)</div>
-        <div class="metric-value" style="color:#B45309;">{amarillo_cnt}</div>
-        <div class="metric-sub">Con condiciones</div></div>""", unsafe_allow_html=True)
+        st.markdown(f"""<div class="metric-box" style="background:rgba(255, 213, 79, 0.08);border:1px solid #FFD54F;">
+        <div class="metric-label" style="color:#FFD54F;">🟡 AMARILLO ({pct_a:.0f}%)</div>
+        <div class="metric-value" style="color:#FFFFFF;">{amarillo_cnt}</div>
+        <div class="metric-sub" style="color:#A8B2D1;">Con condiciones</div></div>""", unsafe_allow_html=True)
     with m4:
-        st.markdown(f"""<div class="metric-box" style="background:#FFEBEE;border:2px solid #C62828;">
-        <div class="metric-label" style="color:#C62828;">🔴 ROJO ({pct_r:.0f}%)</div>
-        <div class="metric-value" style="color:#C62828;">{rojo_cnt}</div>
-        <div class="metric-sub">No viable</div></div>""", unsafe_allow_html=True)
+        st.markdown(f"""<div class="metric-box" style="background:rgba(255, 82, 82, 0.08);border:1px solid #FF5252;">
+        <div class="metric-label" style="color:#FF5252;">🔴 ROJO ({pct_r:.0f}%)</div>
+        <div class="metric-value" style="color:#FFFFFF;">{rojo_cnt}</div>
+        <div class="metric-sub" style="color:#A8B2D1;">No viable</div></div>""", unsafe_allow_html=True)
     with m5:
-        st.markdown(f"""<div class="metric-box" style="background:#F4F6F9;border:3px solid #00B8A9;">
-        <div class="metric-label" style="color:#0F2A5C;">📐 IGM PROMEDIO ECOSISTEMA</div>
-        <div class="metric-value" style="color:#00B8A9;">{mean_igm:.2f}</div>
-        <div class="metric-sub">ICG {mean_icg:.1f} · IVC {mean_ivc:.1f} · IRR {mean_irr:.1f}</div></div>""", unsafe_allow_html=True)
+        st.markdown(f"""<div class="metric-box" style="background:rgba(23, 42, 69, 0.6);border:2px solid #00E5FF;">
+        <div class="metric-label" style="color:#00E5FF;">IGM PROMEDIO ECOSISTEMA</div>
+        <div class="metric-value" style="color:#FFFFFF;">{mean_igm:.2f}</div>
+        <div class="metric-sub" style="color:#CCD6F6;">ICG {mean_icg:.1f} · IVC {mean_ivc:.1f} · IRR {mean_irr:.1f}</div></div>""", unsafe_allow_html=True)
 
     st.markdown("---")
 
     # ── Pestañas de Navegación del Dashboard ──────
-    tab_rank, tab_charts, tab_data = st.tabs(["🏆 Ranking & Tabla Semáforo", "📈 Gráficos del Ecosistema (Retos & Brechas)", "📥 Registro Completo & Exportar"])
+    tab_rank, tab_charts, tab_data = st.tabs(["🏆 Ranking & Tabla Semáforo", "📈 Gráficos del Ecosistema", "📥 Registro Completo & Exportar"])
 
     with tab_rank:
-        st.markdown("#### 🏆 Ranking por IGM (De mayor a menor viabilidad)")
+        st.markdown("#### 🏆 Ranking de Pares Tecnológicos (Por IGM descendente)")
         df_sorted = df_show.sort_values("IGM", ascending=False).reset_index(drop=True)
 
         for _, row in df_sorted.iterrows():
@@ -631,19 +621,19 @@ elif pagina == "📊 Dashboard en Tiempo Real":
             ts  = row.get("timestamp", "")
 
             st.markdown(f"""
-            <div class="matching-row" style="border-left-color:{fg}; background:{bg}20;">
+            <div class="matching-row" style="border-left-color:{fg}; background:{bg}; border: 1px solid rgba(255,255,255,0.1);">
               <div>
-                <span style="font-weight:700; font-size:1rem; color:{fg};">{sem}</span>
-                <span style="margin-left:12px; font-weight:700; font-size:0.9rem;">{reto_code}</span>
-                <span style="color:#555; font-size:0.85rem;"> — {str(reto_desc)[:45]}</span><br>
-                <span style="font-size:0.8rem; color:#444;">
-                  🔬 <b>{str(tec)[:50]}</b>  ·  🏢 <b>{str(emp)[:45]}</b>
-                </span><br>
-                <span style="font-size:0.72rem; color:#888;">{ts}</span>
+                <span style="font-weight:800; font-size:1.05rem; color:{fg};">{sem}</span>
+                <span style="margin-left:14px; font-weight:700; font-size:0.95rem; color:#FFFFFF;">{reto_code}</span>
+                <span style="color:#A8B2D1; font-size:0.88rem;"> — {str(reto_desc)[:45]}</span><br>
+                <div style="margin-top:6px; font-size:0.85rem; color:#CCD6F6;">
+                  🔬 <b style="color:#FFFFFF;">{str(tec)[:50]}</b> &nbsp;|&nbsp; 🏢 <b style="color:#FFFFFF;">{str(emp)[:45]}</b>
+                </div>
+                <div style="font-size:0.75rem; color:#8892B0; margin-top:4px;">⏱️ {ts}</div>
               </div>
-              <div style="text-align:right; min-width:140px;">
-                <div style="font-size:2.2rem; font-weight:800; color:{fg};">{igm_val:.2f}</div>
-                <div style="font-size:0.72rem; font-weight:600; color:{fg};">ICG {float(row.get('ICG',0)):.1f}
+              <div style="text-align:right; min-width:150px;">
+                <div style="font-size:2.4rem; font-weight:800; color:{fg}; letter-spacing:-0.03em;">{igm_val:.2f}</div>
+                <div style="font-size:0.75rem; font-weight:600; color:#A8B2D1;">ICG {float(row.get('ICG',0)):.1f}
                   · IVC {float(row.get('IVC',0)):.1f}
                   · IRR {float(row.get('IRR',0)):.1f}</div>
               </div>
@@ -658,7 +648,7 @@ elif pagina == "📊 Dashboard en Tiempo Real":
             df_reto_cnt = df_show["reto"].value_counts().reset_index()
             df_reto_cnt.columns = ["Reto", "Evaluaciones"]
             df_reto_cnt["Reto_Nombre"] = df_reto_cnt["Reto"].astype(str).map(lambda x: f"{x} · {RETOS.get(x, x)[:28]}")
-            st.bar_chart(df_reto_cnt.set_index("Reto_Nombre")["Evaluaciones"], color="#00B8A9")
+            st.bar_chart(df_reto_cnt.set_index("Reto_Nombre")["Evaluaciones"], color="#00E5FF")
 
         with col_c2:
             st.markdown("##### 🔬 Comparativa Desglosada por Proyecto (IGM vs ICG, IVC, IRR)")
@@ -669,18 +659,31 @@ elif pagina == "📊 Dashboard en Tiempo Real":
 
     with tab_data:
         st.markdown("#### 📋 Registro Detallado de Evaluaciones")
-        st.caption("Puedes buscar, ordenar y explorar todas las variables y respuestas de los gestores.")
+        st.caption("Explora, filtra o busca todas las variables y respuestas enviadas en tiempo real.")
         st.dataframe(df_show, hide_index=True, use_container_width=True)
 
-        csv_data = df_show.to_csv(index=False).encode('utf-8-sig')
-        st.download_button(
-            label="📥 Descargar Reporte Completo en CSV (Listo para Excel / MOU)",
-            data=csv_data,
-            file_name=f"reporte_igm_egtbc2026_{datetime.now().strftime('%Y%m%d_%H%M')}.csv",
-            mime="text/csv",
-            type="primary",
-            use_container_width=True
-        )
+        col_dl, col_del = st.columns([2, 2])
+        with col_dl:
+            csv_data = df_show.to_csv(index=False).encode('utf-8-sig')
+            st.download_button(
+                label="📥 Descargar Reporte en CSV (Listo para Excel / MOU)",
+                data=csv_data,
+                file_name=f"reporte_igm_egtbc2026_{datetime.now().strftime('%Y%m%d_%H%M')}.csv",
+                mime="text/csv",
+                type="primary",
+                use_container_width=True
+            )
+        with col_del:
+            with st.expander("🗑️ ¿Cómo eliminar o limpiar registros de prueba?"):
+                st.markdown("""
+                **Para borrar una fila de evaluación (ej. pruebas previas al evento):**
+                1. Abre tu **Google Sheet** en el navegador.
+                2. Selecciona las filas de prueba que deseas borrar (desde la fila 2 hacia abajo), haz clic derecho y elige **Eliminar filas**.
+                3. Al recargar este Dashboard (o esperar 8 seg), ¡desaparecerán automáticamente!
+                """)
+                if st.button("🔄 Forzar recarga de datos (Limpiar Caché)", use_container_width=True):
+                    get_sheet.clear()
+                    st.rerun()
 
 # ══════════════════════════════════════════════════
 # PÁGINA 3: INSTRUCCIONES
@@ -699,14 +702,14 @@ elif pagina == "ℹ️ Instrucciones IGM":
 
     col1, col2, col3 = st.columns(3)
     bloques = [
-        (col1, "ICG · Compatibilidad Global", "40 %", "#D6EAF8", "#1A5276",
+        (col1, "ICG · Compatibilidad Global", "40 %", "rgba(0, 229, 255, 0.08)", "#00E5FF",
          "Mide si la tecnología académica REALMENTE resuelve el problema técnico "
          "de la empresa: alineamiento TRL, sector, brecha de desempeño y "
          "dependencia de tecnologías externas."),
-        (col2, "IVC · Viabilidad Comercial", "35 %", "#D5F5E3", "#1A7B4E",
+        (col2, "IVC · Viabilidad Comercial", "35 %", "rgba(0, 230, 118, 0.08)", "#00E676",
          "Mide si la empresa tiene capacidad de absorber e implementar la tecnología: "
          "presupuesto, madurez organizacional, equipo técnico, timeline y apoyo de directiva."),
-        (col3, "IRR · Retorno y Riesgo", "25 %", "#E8DAEF", "#7D3C98",
+        (col3, "IRR · Retorno y Riesgo", "25 %", "rgba(224, 64, 251, 0.08)", "#E040FB",
          "Mide si ambas partes ganan algo sostenible y los riesgos son asumibles: "
          "ROI esperado, retorno sostenido, claridad en IP, riesgo técnico y "
          "sostenibilidad de la alianza."),
@@ -714,11 +717,11 @@ elif pagina == "ℹ️ Instrucciones IGM":
     for col, titulo, peso, bg, fg, desc in bloques:
         with col:
             st.markdown(f"""
-            <div style="background:{bg}; border-radius:10px; padding:18px;
-                        border-top:4px solid {fg}; height:200px;">
-              <div style="font-weight:700; color:{fg}; font-size:0.9rem;">{titulo}</div>
-              <div style="font-size:1.6rem; font-weight:800; color:{fg}; margin:6px 0;">{peso}</div>
-              <div style="font-size:0.8rem; color:#444;">{desc}</div>
+            <div style="background:{bg}; border-radius:12px; padding:20px;
+                        border-top:4px solid {fg}; border: 1px solid rgba(255,255,255,0.08); height:210px;">
+              <div style="font-weight:700; color:{fg}; font-size:0.92rem;">{titulo}</div>
+              <div style="font-size:1.8rem; font-weight:800; color:#FFFFFF; margin:8px 0;">{peso}</div>
+              <div style="font-size:0.83rem; color:#CCD6F6; line-height:1.4;">{desc}</div>
             </div>
             """, unsafe_allow_html=True)
 
@@ -727,21 +730,21 @@ elif pagina == "ℹ️ Instrucciones IGM":
     for sem_txt, rng, accion, bg, fg in [
         ("🟢 VERDE", "IGM ≥ 7.0",
          "Alta compatibilidad técnica, comercial y de riesgo. Proceder con carta de intención HOY.",
-         "#D5F5E3", "#1A7B4E"),
+         "rgba(0, 230, 118, 0.12)", "#00E676"),
         ("🟡 AMARILLO", "IGM 5.0 – 6.9",
          "Hay potencial pero existen brechas que deben resolverse antes de firmar. Segunda evaluación en 30 días.",
-         "#FFF3CD", "#B45309"),
+         "rgba(255, 213, 79, 0.12)", "#FFD54F"),
         ("🔴 ROJO", "IGM < 5.0",
          "Brecha insalvable en al menos un subíndice. No procede en este ciclo. Documentar para próxima convocatoria.",
-         "#FFEBEE", "#C62828"),
+         "rgba(255, 82, 82, 0.12)", "#FF5252"),
     ]:
         st.markdown(f"""
-        <div style="background:{bg}; border-radius:8px; padding:14px 18px; margin-bottom:8px;
-                    border-left:5px solid {fg}; display:flex; gap:20px; align-items:center;">
+        <div style="background:{bg}; border-radius:10px; padding:16px 20px; margin-bottom:10px;
+                    border-left:5px solid {fg}; border: 1px solid rgba(255,255,255,0.08); display:flex; gap:20px; align-items:center;">
           <div style="font-size:1.3rem; font-weight:800; color:{fg}; min-width:130px;">{sem_txt}</div>
           <div>
-            <div style="font-weight:700; color:{fg};">{rng}</div>
-            <div style="font-size:0.85rem; color:#444;">{accion}</div>
+            <div style="font-weight:700; color:#FFFFFF; font-size:1rem;">{rng}</div>
+            <div style="font-size:0.88rem; color:#CCD6F6; margin-top:2px;">{accion}</div>
           </div>
         </div>
         """, unsafe_allow_html=True)
